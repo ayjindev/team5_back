@@ -1,11 +1,13 @@
 const express = require("express");
 // const path = require("path");
+const dotenv = require("dotenv");
 
 const { sequelize } = require("./models");
 
 const indexRouter = require("./routes");
 const userRouter = require("./routes/user");
 
+dotenv.config();
 const app = express();
 app.set("port", process.env.PORT || 3000);
 
