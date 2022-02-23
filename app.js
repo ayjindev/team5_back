@@ -1,11 +1,22 @@
 const express = require("express");
-const path = require("path");
+// const path = require("path");
+
+const { sequelize } = require("./models");
 
 const indexRouter = require("./routes");
 const userRouter = require("./routes/user");
 
 const app = express();
 app.set("port", process.env.PORT || 3000);
+
+sequelize
+  .sync({ force: false })
+  .then(() => {
+    console.log("데이터베이스 연결 성공");
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
