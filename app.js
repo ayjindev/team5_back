@@ -25,6 +25,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/serverApi/register", registerRouter);
 
+app.use("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public", "index.html")); //새로고침 및 URL 검색 방지
+});
+
 app.listen(app.get("port"), () => {
   console.log(app.get("port"), "번 포트에서 대기 중");
 });

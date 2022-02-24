@@ -36,7 +36,7 @@ router.route("/").post(async (req, res) => {
       await User.create({
         user_id: req.body.userId,
         user_pw: password,
-        salt: salt,
+        salt: salt, //로그인 시 대조할때 필요
         user_name: req.body.userName,
         user_email: req.body.userEmail,
         user_phonenumber: req.body.userPhoneNumber,
