@@ -1,11 +1,10 @@
 const express = require("express");
-// const path = require("path");
+const path = require("path");
 const dotenv = require("dotenv");
 
 const { sequelize } = require("./models");
 
-const indexRouter = require("./routes");
-const userRouter = require("./routes/user");
+const registerRouter = require("./routes/register");
 
 dotenv.config();
 const app = express();
@@ -20,11 +19,11 @@ sequelize
     console.error(err);
   });
 
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", indexRouter);
-app.use("/user", userRouter);
+app.use("/serverApi/register", registerRouter);
 
 app.listen(app.get("port"), () => {
   console.log(app.get("port"), "번 포트에서 대기 중");
