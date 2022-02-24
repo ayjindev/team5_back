@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const { sequelize } = require("./models");
 
 const registerRouter = require("./routes/register");
+const loginRouter = require("./routes/login");
 
 dotenv.config();
 const app = express();
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/serverApi/register", registerRouter);
+app.use("/serverApi/login", loginRouter);
 
 app.use("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/public", "index.html")); //새로고침 및 URL 검색 방지
