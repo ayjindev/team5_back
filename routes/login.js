@@ -53,7 +53,10 @@ router.route("/").post(async (req, res) => {
           { expiresIn: "1h" }
         );
         console.log(accessToken);
-        res.cookie("id", accessToken, { httpOnly: true });
+        res.cookie("auth", accessToken, {
+          httpOnly: true,
+          maxAge: 60 * 60 * 60 * 24,
+        });
         res.status(201).json({
           success: true,
           accessToken: accessToken,
