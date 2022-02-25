@@ -33,6 +33,14 @@ const dao = {
       });
     },
 
+    selectUserAll(params) {
+      return new Promise((resolve, reject) => {
+        User.findAll({
+
+        })
+      })
+    },
+
     // select
     async selectUserAll() {
       try {
@@ -70,7 +78,7 @@ const dao = {
       }).then((result) => {
         resolve( { resultCount: result });
       }).catch((err) => {
-        reject(err);
+        reject()
       })
     }
 };

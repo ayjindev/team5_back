@@ -4,6 +4,53 @@ const { Op } = require('sequelize');
 const { Car } = require('../models/index.js');
 
 const dao = {
+
+  // 조회
+  selectCarAll(params) {
+    return new Promise((resolve, reject) => {
+      Car.findAll({
+        
+      })
+    })
+  },
+
+  // 등록
+  async insertCar(params) {
+    try {
+      await Car.create(params)
+      return params;
+    } catch(err) {
+      return err;
+    }
+  },
+
+  // 수정
+  async updateCar(params) {
+    try {
+      await Car.update(params, {
+        where: { id: params }
+      })
+      return params;
+    } catch(err) {
+      return err;
+    }
+  },
+
+  // 삭제
+  async deleteCar(params) {
+    try {
+      await Car.destroy(params, {
+        
+      })
+    } catch {
+
+    }
+  }
+};
+
+module.exports = dao;
+
+
 // select - 체크박스에 체크한 조건에 맞는 차 목록
   // async selectCarCheckbox(params) {
   //   try {
@@ -21,26 +68,36 @@ const dao = {
   //   }
   // },
 
-    selectCarCheckBox(params) {
-      return new Promise((resolve, reject) => {
-        User.findAll({
-          attributes: ['carGrade', 'carFuel'],
-          // where: {[Op.and]: {
-          //   [Op.in]:[{ carGrade: params }],
-          //   [Op.in]:[{ carFuel: params }]
-          // }
-          // where: { carGrade: params, carFuel: params },
-          where: { carGrade: params },
-        // },
-          raw: true,
-        }).then((result) => {
-          console.log(result);
-          resolve(result);
-        }).catch((err) => {
-          reject(err);
-        });
-      });
-    },
+    // selectCarCheckBox(params) {
+    //   return new Promise((resolve, reject) => {
+    //     Car.findAll({
+    //       // attributes: ['carGrade', 'carFuel'],
+    //       attributes: ['carGrade'],
+    //     //   where: {
+    //     //   [Op.and]: 
+    //     //   {
+    //     //     [Op.in]:[{ carGrade: params }],
+    //     //     [Op.in]:[{ carFuel: params }]
+    //     //   }
+    //     // },
+    //       // {[Op.and]: 
+    //       //   {
+    //       //   [Op.in]:[{ carGrade: params }],
+    //       //   [Op.in]:[{ carFuel: params }]
+    //       // },
+    //       // where: { carGrade: params, carFuel: params },
+    //       // where: { carGrade: params },
+    //     // },
+    //     // where: { carGrade: params },
+    //       raw: true
+    //     }).then((result) => {
+    //       console.log(result);
+    //       resolve(result);
+    //     }).catch((err) => {
+    //       reject(err);
+    //     });
+    //   });
+    // },
 
 
 
@@ -89,38 +146,3 @@ const dao = {
 
   //   }
   // },
-
-  // 등록
-  async insertCar(params) {
-    try {
-      await Car.create(params)
-      return params;
-    } catch(err) {
-      return err;
-    }
-  },
-
-  // 수정
-  async updateCar(params) {
-    try {
-      await Car.update(params, {
-        where: { id: params }
-      })
-      return params;
-    } catch(err) {
-      return err;
-    }
-  },
-
-  async deleteCar(params) {
-    try {
-      await Car.destroy(params, {
-        
-      })
-    } catch {
-
-    }
-  }
-};
-
-module.exports = dao;

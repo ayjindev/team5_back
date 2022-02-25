@@ -15,7 +15,7 @@ class User {
         try {
             const user = await dao.selectUser(client.userId); // userDao.js
             // 클라이언트에서 입력한 아이디의 정보를 user에 가져옴
-            console.log(user);
+            console.log('userService: ', user);
 
             if(user) {
                 if(user.userId === client.userId && user.userPw === client.userPw) {

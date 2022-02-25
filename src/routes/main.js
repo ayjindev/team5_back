@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
   // console.log('post body : ', req.body.color)
-  console.log(req.body);
+  console.log('router: ', req.body);
   const car = new Car(req.body);
   const response = await car.selectCheckBox();
 
