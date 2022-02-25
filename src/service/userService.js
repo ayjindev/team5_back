@@ -41,8 +41,6 @@ class User {
             return { success: false, err };
         };
     };
-
-    // 회원정보 수정
 };
 
 module.exports = User;

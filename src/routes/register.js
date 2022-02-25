@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     const user = new User(req.body);
-    console.log(req.body, "이거");
     const response = await user.register(); // userService.js
 
     const url = {

@@ -17,6 +17,7 @@ const dao = {
     //   };
     // },
 
+    // 로그인(for User lookup)
     selectUser(params) {
       return new Promise((resolve, reject) => {
         User.findOne({
@@ -59,6 +60,17 @@ const dao = {
       })
       .catch(err => {
         console.error(err);
+      })
+    },
+
+    // delete
+    deleteUser(params) {
+      User.destroy({
+        where: { userId: params }
+      }).then((result) => {
+        resolve( { resultCount: result });
+      }).catch((err) => {
+        reject(err);
       })
     }
 };

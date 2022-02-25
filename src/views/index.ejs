@@ -8,8 +8,139 @@
 </head>
 <body>
     <form method="post">
-    <input type="checkbox" name="color" value="blue" id="dd"> Blue
+    <input type="checkbox" name="carGrade" value="carGrade" id="carFuel"> grade 
+    <input type="checkbox" name="carFuel" value="carFuel" id="carFuel"> fuel
     <p><input type="submit" value="Submit">
     </form>
 </body>
 </html>
+
+
+
+<!-- 
+<template>
+  <div class="body">
+    <div class="top">
+      <div class="filter">
+        <div class="rank">
+          <h2 class="sub">차량등급</h2>
+          <div>
+            <div class="line_h">
+              <label><input v-model="rankAllSelect" type="checkbox" name="rank_all" value="" />전체</label>
+            </div>
+            <div v-for="(data, index) in rankSelect" :key="index" class="line_h">
+              <label
+                ><input v-model="data.value" type="checkbox" :name="data" :label="data" @click="test" />{{
+                  data.name
+                }}</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="fuel">
+          <h2 class="sub">연료</h2>
+          <div>
+            <div class="line_h">
+              <label><input v-model="fuelAllSelect" type="checkbox" name="fuel_all" value="" />전체</label>
+            </div>
+            <div v-for="(data, index) in ['휘발유', '경유', 'LPG', '전기', '하이브리드']" :key="index" class="line_h">
+              <label><input v-model="fuelSelect" type="checkbox" :name="data" />{{ data }}</label>
+            </div>
+          </div>
+        </div>
+        <div class="date_time">
+          <h2 class="sub">날짜/시간</h2>
+        </div>
+      </div>
+      <div class="sort">
+        <ul>
+          <li><a href="">낮은 가격순</a></li>
+          /
+          <li><a href="">높은 가격순</a></li>
+        </ul>
+        <div class="search_box">
+          <input v-model="search" class="stage-search" type="text" placeholder="검색어를 입력해 주세요" />
+          <a id="search" href="">검색</a>
+        </div>
+      </div>
+    </div>
+    <div class="contents_list">
+      <div class="contents">
+        <div class="img_box">
+          <a target="_blank" href="https://auto.daum.net/newcar/model/mjv000euppt6">
+            <img src="../../assets/images/car_volvo_xc60.png" alt="볼보 XC60 2세대" />
+          </a>
+        </div>
+        <div class="contents_box">
+          <dl class="c_box_01">
+            <dt class="rank_name">볼보 XC60 2세대</dt>
+            <dd class="fuel_name">20~21년식 휘발유</dd>
+            <dd>유모차/카시트 신청 가능</dd>
+          </dl>
+          <div class="c_box_02">
+            <span class="car_name">수입</span>
+            <dd class="star">★4.4</dd>
+          </div>
+          <div class="price c_box_03">168,000 <button>바로 예약 하기</button></div>
+        </div>
+      </div>
+      <div class="contents">
+        <div class="img_box">
+          <a target="_blank" href="https://auto.daum.net/newcar/model/mjv000euppt6">
+            <img src="../../assets/images/car_volvo_xc60.jpeg" alt="볼보 XC60 2세대" />
+          </a>
+        </div>
+        <div class="contents_box">
+          <dl class="c_box_01">
+            <dt class="rank_name">볼보 XC60 2세대</dt>
+            <dd class="fuel_name">20~21년식 휘발유</dd>
+            <dd>유모차/카시트 신청 가능</dd>
+          </dl>
+          <div class="c_box_02">
+            <span class="car_name">수입</span>
+            <dd class="star">★4.4</dd>
+          </div>
+          <div class="price c_box_03">168,000 <button>바로 예약 하기</button></div>
+        </div>
+      </div>
+      <div class="contents">
+        <div class="img_box">
+          <a target="_blank" href="https://auto.daum.net/newcar/model/mjv000euppt6">
+            <img src="../../assets/images/car_volvo_xc60.png" alt="볼보 XC60 2세대" />
+          </a>
+        </div>
+        <div class="contents_box">
+          <dl class="c_box_01">
+            <dt class="rank_name">볼보 XC60 2세대</dt>
+            <dd class="fuel_name">20~21년식 휘발유</dd>
+            <dd>유모차/카시트 신청 가능</dd>
+          </dl>
+          <div class="c_box_02">
+            <span class="car_name">수입</span>
+            <dd class="star">★4.4</dd>
+          </div>
+          <div class="price c_box_03">168,000 <button>바로 예약 하기</button></div>
+        </div>
+      </div>
+      <div class="contents">
+        <div class="img_box">
+          <a target="_blank" href="https://auto.daum.net/newcar/model/mjv000euppt6">
+            <img src="../../assets/images/car_volvo_xc60.jpeg" alt="볼보 XC60 2세대" />
+          </a>
+        </div>
+        <div class="contents_box">
+          <dl class="c_box_01">
+            <dt class="rank_name">볼보 XC60 2세대</dt>
+            <dd class="fuel_name">20~21년식 휘발유</dd>
+            <dd>유모차/카시트 신청 가능</dd>
+          </dl>
+          <div class="c_box_02">
+            <span class="car_name">수입</span>
+            <dd class="star">★4.4</dd>
+          </div>
+          <div class="price c_box_03">168,000 <button>바로 예약 하기</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template> -->

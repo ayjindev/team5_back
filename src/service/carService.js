@@ -6,7 +6,30 @@ class Car {
     constructor(body) {
         this.body = body;
     };
+
     
+    async selectCheckBox() {
+        const selCheck = this.body;
+
+        try {
+            const car = await dao.selectCarCheckBox(selCheck.carGrade);
+            console.log(car);
+
+            if(car) {
+                if(car.carGrade === selCheck.carGrade && car.carFuel === selCheck.carFuel) {
+                    return { success: true };
+                }
+            return { success: true };
+            }
+        } catch(err) {
+            return { success: false, err };
+        }
+    };
+};
+
+module.exports = Car;
+
+
     // select() {
     //     const select = this.body;
 
@@ -31,6 +54,3 @@ class Car {
     //         return { success: false, err };
     //     };
     // };
-};
-
-module.exports = Car;
