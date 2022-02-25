@@ -1,5 +1,4 @@
 const express = require("express");
-const cookie = require("cookie");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const crypto = require("crypto");
@@ -55,7 +54,7 @@ router.route("/").post(async (req, res) => {
         console.log(accessToken);
         res.cookie("auth", accessToken, {
           httpOnly: true,
-          maxAge: 60 * 60 * 60 * 24,
+          maxAge: 1000 * 60 * 60 * 1, // 유효기간 1시간
         });
         res.status(201).json({
           success: true,
