@@ -1,12 +1,15 @@
 const express = require("express");
+const cookie = require("cookie");
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
 const crypto = require("crypto");
 const User = require("../models/user");
 
 const router = express.Router();
+dotenv.config();
 
 router.route("/").post(async (req, res) => {
   console.log(req.body);
-  res.send("ok");
   const { loginId, loginPw } = req.body; //input id 명 통일 해야함
 
   try {
@@ -41,11 +44,28 @@ router.route("/").post(async (req, res) => {
       }).then((result) => result.user_pw);
       if (password === passwordCheck) {
         console.log("로그인 성공");
+        const secretKey = process.env.SECRET_KEY;
+        const accessToken = jwt.sign(
+          {
+            id: loginId,
+          },
+          secretKey,
+          { expiresIn: "1h" }
+        );
+        console.log(accessToken);
+        res.cookie("id", accessToken, { httpOnly: true });
+        res.status(201).json({
+          success: true,
+          accessToken: accessToken,
+        });
       } else {
         console.log("비밀번호가 다릅니다");
+        res.json({ success: false });
       }
     }
-  } catch {}
+  } catch (err) {
+    (err) => console.error(err);
+  }
 });
 
 module.exports = router;

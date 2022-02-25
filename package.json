@@ -17,15 +17,18 @@
   },
   "homepage": "https://github.com/jay0v0/team5_back#readme",
   "dependencies": {
+    "cookie": "^0.4.2",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
     "nodemon": "^2.0.15",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
+    "redis": "^4.0.4",
     "sequelize": "^6.16.2",
     "sequelize-cli": "^6.4.1"
   }
