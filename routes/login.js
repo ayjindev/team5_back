@@ -16,7 +16,8 @@ router.route("/").post(async (req, res) => {
       attributes: ["user_id"],
       where: { user_id: loginId },
     });
-    if (login.length === 0) {
+    console.log(login);
+    if (login === null) {
       console.log("등록되지 않은 회원입니다");
       res.json({ success: false });
     } else {
