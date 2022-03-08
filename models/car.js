@@ -7,6 +7,7 @@ module.exports = class Car extends Sequelize.Model {
         car_num: {
           type: Sequelize.STRING(50),
           allowNull: false,
+          primaryKey: true,
         },
         car_name: {
           type: Sequelize.STRING(50),
