@@ -12,8 +12,8 @@ router.post("/", async (req, res) => {
       req.headers.cookie.split("=")[1],
       process.env.SECRET_KEY
     );
-    //예약테이블에서 정보 가져오기
-    console.log(verfiytoken);
+    //예약테이블에서 정보 가져오기 로직 추가
+    console.log(verfiytoken.id);
   } catch (err) {
     console.error(err);
   }
