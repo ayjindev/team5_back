@@ -1,57 +1,71 @@
 const Sequelize = require("sequelize");
 
-module.exports = class User extends Sequelize.Model {
+module.exports = class Reservation extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
+        reservation_no: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          autoIncrement: true,
+          primaryKey: true,
+        },
         user_id: {
           type: Sequelize.STRING(50),
           allowNull: false,
-          primaryKey: true,
         },
-        user_pw: {
-          type: Sequelize.STRING(100),
-          allowNull: false,
-        },
-        salt: {
-          type: Sequelize.STRING(100),
-          allowNull: false,
-        },
-        user_name: {
+        car_name: {
           type: Sequelize.STRING(50),
           allowNull: false,
         },
-        user_email: {
+        car_rank: {
           type: Sequelize.STRING(50),
           allowNull: false,
         },
-        user_phonenumber: {
+        car_fuel: {
           type: Sequelize.STRING(50),
           allowNull: false,
         },
-        user_birth: {
+        car_price: {
           type: Sequelize.STRING(50),
           allowNull: false,
         },
-        user_zip: {
+        client_name: {
+          type: Sequelize.STRING(50),
+          allowNull: false,
+        },
+        driver_name: {
+          type: Sequelize.STRING(50),
+          allowNull: false,
+        },
+        driver_birth: {
+          type: Sequelize.DATEONLY,
+          allowNull: true,
+        },
+        driver_phonenumber: {
           type: Sequelize.STRING(50),
           allowNull: true,
         },
-        user_address1: {
-          type: Sequelize.STRING(100),
+        start_date: {
+          type: Sequelize.DATEONLY,
           allowNull: true,
         },
-        user_address2: {
-          type: Sequelize.STRING(100),
+        end_date: {
+          type: Sequelize.DATEONLY,
           allowNull: true,
+        },
+        createdAt: {
+          type: Sequelize.DATE,
+          allowNull: true,
+          defaultValue: Sequelize.NOW,
         },
       },
       {
         sequelize,
         timestamps: false,
         underscored: false,
-        modelName: "User",
-        tableName: "users",
+        modelName: "Reservation",
+        tableName: "reservations",
         paranoid: false,
         charset: "utf8",
         collate: "utf8_general_ci",
@@ -59,9 +73,9 @@ module.exports = class User extends Sequelize.Model {
     );
   }
   static associate(db) {
-    db.User.hasMany(db.Reservation, {
+    db.Reservation.belongsTo(db.User, {
       foreignKey: "user_id",
-      sourceKey: "user_id",
+      targetKey: "user_id",
     });
   }
 };
