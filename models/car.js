@@ -22,7 +22,7 @@ module.exports = class Car extends Sequelize.Model {
           allowNull: false,
         },
         car_price: {
-          type: Sequelize.STRING(50),
+          type: Sequelize.INTEGER,
           allowNull: false,
         },
         car_star: {
