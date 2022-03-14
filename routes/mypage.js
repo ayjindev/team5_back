@@ -6,7 +6,7 @@ const Reservation = require("../models/reservation");
 dotenv.config();
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.get("/", async (req, res) => {
   console.log(req.headers.cookie.split("=")[1]);
   try {
     const verfiytoken = jwt.verify(

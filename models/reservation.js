@@ -55,7 +55,7 @@ module.exports = class Reservation extends Sequelize.Model {
           allowNull: true,
         },
         createdAt: {
-          type: Sequelize.DATE,
+          type: Sequelize.DATEONLY,
           allowNull: true,
           defaultValue: Sequelize.NOW,
         },
