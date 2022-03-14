@@ -9,6 +9,7 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   try {
     const resInfo = req.body;
+    console.log(resInfo);
     console.log(req.headers.cookie);
     const verfiytoken = jwt.verify(
       req.headers.cookie.split("=")[1],
